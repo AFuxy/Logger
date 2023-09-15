@@ -13,5 +13,6 @@ client.on("inviteCreate", (invite) => {
         { name: 'Invite Code', value: `\`\`\`elm\n${invite.code}\`\`\``},
         { name: 'Invite Link', value: `[Invite](${invite.url})`}
     )
+    invites.get(invite.guild.id).set(invite.code, invite.uses);
     logger(embed, invite.inviter.id, extra, file);
 })

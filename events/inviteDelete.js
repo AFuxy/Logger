@@ -9,5 +9,6 @@ client.on("inviteDelete", (invite) => {
     .addFields(
         { name: 'Invite Code', value: `\`\`\`elm\n${invite.code}\`\`\``}
     )
+    invites.get(invite.guild.id).delete(invite.code);
     logger(embed, invite.inviterid, extra, file);
 });
