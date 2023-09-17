@@ -9,9 +9,13 @@ client.on("messageCreate", (message) => {
     .setTitle(" > New Message")
     .addFields(
         { name: 'Username', value: `\`\`\`elm\n${message.author.username}\`\`\``, inline: true},
-        { name: 'Channel', value: `\`\`\`elm\n${message.channel.name}\`\`\``, inline: true},
-        { name: 'Message', value: `\`\`\`diff\n+ ${message.content}\`\`\``}
+        { name: 'Channel', value: `\`\`\`elm\n${message.channel.name}\`\`\``, inline: true}
     )
+    if(message.content.length > 1023) {
+        embed.setDescription(`\`\`\`diff\n+ ${message.content}\`\`\``);
+    }else{
+        embed.addFields({ name: 'Message', value: `\`\`\`diff\n+ ${message.content}\`\`\``});
+    }
     if (message.attachments && message.attachments.size > 0) {
         file = new AttachmentBuilder(message.attachments.first().url);
         const messagAttach = message.attachments.first().contentType;

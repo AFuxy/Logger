@@ -9,9 +9,13 @@ client.on("messageDelete", async(messageDelete) => {
     .setTitle(" > Message Deleted")
     .addFields(
         { name: 'Username', value: `\`\`\`elm\n${messageDelete.author.username}\`\`\``, inline: true},
-        { name: 'Channel', value: `\`\`\`elm\n${messageDelete.channel.name}\`\`\``, inline: true},
-        { name: 'Message', value: `\`\`\`diff\n- ${messageDelete.content}\`\`\``}
+        { name: 'Channel', value: `\`\`\`elm\n${messageDelete.channel.name}\`\`\``, inline: true}
     )
+    if(messageDelete.content.length > 1011) {
+        embed.setDescription(`\`\`\`diff\n- ${messageDelete.content}\`\`\``);
+    }else{
+        embed.addFields({ name: 'Message', value: `\`\`\`diff\n- ${messageDelete.content}\`\`\``});
+    }
     if (messageDelete.attachments && messageDelete.attachments.size > 0) {
         file = new AttachmentBuilder(messageDelete.attachments.first().url);
         const messagAttach = messageDelete.attachments.first().contentType;
