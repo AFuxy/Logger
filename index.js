@@ -11,7 +11,7 @@ const webhookClient = new WebhookClient({ url: config.webHookURL });
 async function logger(embed, userID, extra, file) {
     embed.setColor("#e36464");
     embed.setTimestamp();
-    embed.setFooter({ text: 'Inspire Tracker • v0.0.2-Alpha by Bedlam Group', iconURL: 'https://yt3.googleusercontent.com/tDyrkpVDd08Bc67PaUwci855_yiIHv6arCEie-mVdYieBQRkj2_mIhMdiGrSZ6D3PBZfoHso=s176-c-k-c0x00ffffff-no-rj' });
+    embed.setFooter({ text: 'Inspire Tracker • v0.0.3-Alpha by Bedlam Group', iconURL: 'https://yt3.googleusercontent.com/tDyrkpVDd08Bc67PaUwci855_yiIHv6arCEie-mVdYieBQRkj2_mIhMdiGrSZ6D3PBZfoHso=s176-c-k-c0x00ffffff-no-rj' });
 
     if(userID !== config.TagID) return;
 
@@ -36,7 +36,7 @@ require("fs").readdirSync(normalizedPath).forEach(function(file) {
 // //
 
 client.on("ready", async () => {
-  console.log(`${client.user.tag} | Bedlam Logger`);
+  console.log(`bot online | ${client.user.tag} | Bedlam Logger`);
   client.user.setPresence({ activities: [{ name: config.presence, type: ActivityType.Custom }], status: "dnd" })
   client.users.fetch(config.TagID).then((user) => {
     console.log(`${user.tag} | Tagged!`)
