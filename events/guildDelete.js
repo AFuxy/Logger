@@ -7,10 +7,12 @@ client.on("guildDelete", (guild) => {
     const embed = new EmbedBuilder()
     .setTitle(" > Guild Left")
     .addFields(
-        { name: 'Name', value: `\`\`\`elm\n${guild.name}\`\`\``},
-        { name: 'ID', value: `\`\`\`elm\n${guild.id}\`\`\``},
+        { name: 'Name', value: `\`\`\`elm\n${guild.name}\`\`\``, inline: true},
+        { name: 'ID', value: `\`\`\`elm\n${guild.id}\`\`\``, inline: true},
+        { name: ' ', value: ' '},
         { name: 'Owner', value: `\`\`\`elm\n${guild.owner.user.username}\`\`\``, inline: true},
         { name: 'Region', value: `\`\`\`elm\n${guild.region}\`\`\``, inline: true},
+        { name: ' ', value: ' '},
         { name: 'Verification Level', value: `\`\`\`elm\n${guild.verificationLevel}\`\`\``, inline: true},
         { name: 'Members', value: `\`\`\`elm\n${guild.memberCount}\`\`\``, inline: true}
     )

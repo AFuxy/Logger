@@ -12,11 +12,11 @@ client.on("guildMemberAdd", async (member) => {
     const embed = new EmbedBuilder()
     .setTitle(" > User Joined")
     .addFields(
-        { name: 'Username', value: `\`\`\`elm\n${member.user.username}\`\`\``},
-        { name: 'ID', value: `\`\`\`elm\n${member.user.id}\`\`\``},
-        // { name: 'Presence', value: `\`\`\`elm\n${member.presence.status}\`\`\``},
-        { name: 'Joined At', value: `<t:${Math.round(member.joinedTimestamp / 1000)}:F>`},
-        { name: 'Invite Code', value: `\`\`\`elm\n${inviter ? invite.code : "None"}\`\`\``}
+        { name: 'Username', value: `\`\`\`elm\n${member.user.username}\`\`\``, inline: true},
+        { name: 'ID', value: `\`\`\`elm\n${member.user.id}\`\`\``, inline: true},
+        { name: ' ', value: ' '},
+        { name: 'Joined At', value: `<t:${Math.round(member.joinedTimestamp / 1000)}:F>`, inline: true},
+        { name: 'Invite Code', value: `\`\`\`elm\n${inviter ? invite.code : "None"}\`\`\``, inline: true}
     )
     .setThumbnail(member.user.avatarURL());
     logger(embed, config.TagID, extra, file);
