@@ -58,7 +58,6 @@ require("fs").readdirSync(normalizedPath).forEach(function(file) {
 // //
 
 client.on("ready", async () => {
-  // add system to stop the bot if the config version is not the same as the preconfigured version in code.
   console.log(`bot online | ${client.user.tag} | Bedlam Logger`);
   client.user.setPresence({ activities: [{ name: config.presence, type: ActivityType.Custom }], status: "dnd" })
   client.users.fetch(config.TagID).then((user) => {
