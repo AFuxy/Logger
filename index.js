@@ -1,4 +1,4 @@
-const { EmbedBuilder, WebhookClient, ActionRowBuilder, ButtonBuilder, Modal, TextInputBuilder, OAuth2Scopes, Partials, resolveColor, Client, Collection, GatewayIntentBits, SelectMenuBuilder, ActivityType, PermissionsBitField } = require("discord.js");
+const { EmbedBuilder, WebhookClient, ActionRowBuilder, ButtonBuilder, Modal, TextInputBuilder, OAuth2Scopes, Partials, resolveColor, Client, Collection, GatewayIntentBits, SelectMenuBuilder, ActivityType, PermissionsBitField, AttachmentBuilder } = require("discord.js");
 const { exit } = require("process");
 const client = global.client = new Client({ fetchAllMembers: true, intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildModeration, GatewayIntentBits.GuildEmojisAndStickers, GatewayIntentBits.GuildIntegrations, GatewayIntentBits.GuildWebhooks, GatewayIntentBits.GuildInvites, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMessageTyping, GatewayIntentBits.MessageContent], scopes: [OAuth2Scopes.Bot, OAuth2Scopes.ApplicationsCommands], partials: [Partials.Message, Partials.Channel, Partials.Reaction, Partials.User, Partials.GuildMember, Partials.ThreadMember, Partials.GuildScheduledEvent], ws: { version: "10" } });
 const config = global.config = require("./config");
@@ -7,7 +7,7 @@ const wait = require("timers/promises").setTimeout;
 
 // START | To be moved!
 
-if(config.V !== "0.0.1"){
+if(config.V !== "0.0.2"){
   console.error("Config version does not match, please update your config.js file");
   exit();
 }
@@ -30,7 +30,12 @@ const invites = global.invites = new Collection();
 
 const webhookClient = new WebhookClient({ url: config.webHookURL });
 
-async function logger(embed, userID, extra, file) {
+if(config.webHookFULLURL){
+  webhookClientFULL = new WebhookClient({ url: config.webHookFULLURL });
+  console.log("Extra WebHook is connected");
+}
+
+async function logger(embed, userID, extra, file = null) {
     embed.setColor("#e36464");
     embed.setTimestamp();
     embed.setFooter({ text: 'Logger • v0.0.4-Alpha by Bedlam Group', iconURL: 'https://yt3.googleusercontent.com/tDyrkpVDd08Bc67PaUwci855_yiIHv6arCEie-mVdYieBQRkj2_mIhMdiGrSZ6D3PBZfoHso=s176-c-k-c0x00ffffff-no-rj' });
@@ -42,11 +47,22 @@ async function logger(embed, userID, extra, file) {
         username: 'Logger',
         avatarURL: 'https://yt3.googleusercontent.com/tDyrkpVDd08Bc67PaUwci855_yiIHv6arCEie-mVdYieBQRkj2_mIhMdiGrSZ6D3PBZfoHso=s176-c-k-c0x00ffffff-no-rj',
         embeds: [embed],
-        files: file ? [file] : []
+        files: file ? file : []
       }).catch(console.error);
 }
 
-module.exports = { logger };
+async function fulllogs(guildID, username, icon, message, file = null) {
+  if(guildID !== config.TagGuildID) return;
+
+  webhookClientFULL.send({
+    username: username,
+    avatarURL: icon,
+    content: message,
+    files: file ? file : []
+  })
+}
+
+module.exports = { logger, fulllogs };
 
 var normalizedPath = require("path").join(__dirname, "events");
 
