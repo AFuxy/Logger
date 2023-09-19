@@ -4,7 +4,6 @@ const { logger } = require("../index");
 client.on("guildUpdate", (oldGuild, newGuild) => {
     file = null;
     extra = null;
-    changed = 1;
     const embed = new EmbedBuilder()
     .setTitle(" > Guild Updated")
     .addFields({ name: "Guild", value: `\`\`\`elm\n${newGuild.name}\`\`\``});

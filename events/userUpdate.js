@@ -12,5 +12,5 @@ client.on("userUpdate", (oldUser, newUser) => {
     if(oldUser.avatarURL() != newUser.avatarURL()) {
         file = new AttachmentBuilder(newUser.avatarURL(), { name: "New Avatar.jpeg" });
     }
-    logger(embed, newUser.id, extra, file);
+    logger(embed, newUser.id, extra, [file]);
 })
