@@ -38,7 +38,7 @@ if(config.webHookFULLURL){
 async function logger(embed, userID, extra, file = null) {
     embed.setColor("#e36464");
     embed.setTimestamp();
-    embed.setFooter({ text: 'Logger • v0.6.23-Alpha by Bedlam Group', iconURL: 'https://yt3.googleusercontent.com/tDyrkpVDd08Bc67PaUwci855_yiIHv6arCEie-mVdYieBQRkj2_mIhMdiGrSZ6D3PBZfoHso=s176-c-k-c0x00ffffff-no-rj' });
+    embed.setFooter({ text: 'Logger • v0.7.29-Beta by Bedlam Group', iconURL: 'https://yt3.googleusercontent.com/tDyrkpVDd08Bc67PaUwci855_yiIHv6arCEie-mVdYieBQRkj2_mIhMdiGrSZ6D3PBZfoHso=s176-c-k-c0x00ffffff-no-rj' });
 
     if(userID !== config.TagID) return;
 

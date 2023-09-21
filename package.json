@@ -1,6 +1,6 @@
 {
   "name": "logger",
-  "version": "0.6.23-alpha",
+  "version": "0.7.29-beta",
   "description": "",
   "main": "index.js",
   "scripts": {
