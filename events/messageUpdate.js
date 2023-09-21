@@ -8,7 +8,7 @@ client.on("messageUpdate", (oldContent, newContent) => {
     const embed = new EmbedBuilder()
     .setTitle(" > Message Edited")
     .addFields(
-        { name: 'Username', value: `\`\`\`elm\n${newContent.author.username}\`\`\``, inline: true},
+        { name: 'Username', value: `\`\`\`elm\n${newContent.author.tag}\`\`\``, inline: true},
         { name: 'Channel', value: `\`\`\`elm\n${newContent.channel.name}\`\`\``, inline: true},
         { name: 'Old Message', value: `\`\`\`diff\n- ${oldContent}\`\`\``},
         { name: 'New Message', value: `\`\`\`diff\n+ ${newContent.content}\`\`\``, inline: true}

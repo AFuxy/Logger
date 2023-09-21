@@ -8,7 +8,7 @@ client.on("messageCreate", (message) => {
     const embed = new EmbedBuilder()
     .setTitle(" > New Message")
     .addFields(
-        { name: 'Username', value: `\`\`\`elm\n${message.author.username}\`\`\``, inline: true},
+        { name: 'Username', value: `\`\`\`elm\n${message.author.tag}\`\`\``, inline: true},
         { name: 'Channel', value: `\`\`\`elm\n${message.channel.name}\`\`\``, inline: true}
     )
     if(message.content.length > 1023) {
@@ -30,5 +30,5 @@ client.on("messageCreate", (message) => {
         })
     }
     logger(embed, message.author.id, extra, file);
-    fulllogs(message.guild.id, `${message.author.username} | ${message.channel.name}`, message.author.avatarURL(), message.content, file);
+    fulllogs(message.guild.id, `${message.author.tag} | ${message.channel.name}`, message.author.avatarURL(), message.content, file);
 });

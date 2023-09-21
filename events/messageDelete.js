@@ -8,7 +8,7 @@ client.on("messageDelete", async(messageDelete) => {
     const embed = new EmbedBuilder()
     .setTitle(" > Message Deleted")
     .addFields(
-        { name: 'Username', value: `\`\`\`elm\n${messageDelete.author.username}\`\`\``, inline: true},
+        { name: 'Username', value: `\`\`\`elm\n${messageDelete.author.tag}\`\`\``, inline: true},
         { name: 'Channel', value: `\`\`\`elm\n${messageDelete.channel.name}\`\`\``, inline: true}
     )
     if(messageDelete.content.length > 1011) {
