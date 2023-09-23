@@ -1,9 +1,10 @@
 {
   "name": "logger",
-  "version": "0.7.29-beta",
+  "version": "0.8.30-beta",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "deploy": "node deploy-commands.js",
     "start": "node ."
   },
   "keywords": [],
