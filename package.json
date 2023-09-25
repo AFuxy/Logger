@@ -1,6 +1,6 @@
 {
   "name": "logger",
-  "version": "0.8.30-beta",
+  "version": "1.9.30",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^14.13.0"
+    "@discordjs/voice": "^0.16.0",
+    "discord.js": "^14.13.0",
+    "tweetnacl": "^1.0.3"
   }
 }
