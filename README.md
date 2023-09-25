@@ -16,8 +16,8 @@ module.exports = {
 }
 ```
 make sure to input **ALL** required info or the bot will not start.  
-2. rename the `config_template.js` file to `config.js`
-3. run `npm install` to install the dependencies  .
+2. rename the `config_template.js` file to `config.js`  
+3. run `npm install` to install the dependencies.  
 4. run `npm run deploy` to deploy the bot commands to your server.  
 5. run `npm start` to start the bot.  
 
