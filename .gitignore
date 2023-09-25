@@ -127,3 +127,6 @@ dist
 .pnp.*
 config.js
 commands/Custom
+cdn/audio
+cdn/video
+cdn/image
